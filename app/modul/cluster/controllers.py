@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 import StringIO
 import base64
 import dbmodel as d
-import silhoutte
 
 mod_cluster = Blueprint('cluster', __name__, url_prefix='/mod_cluster')
 
@@ -58,11 +57,13 @@ def cluster():
 		dbmodel.insert_one("Alumni_UAD", "cluster", temp_data)
 		list_data.append(temp_data)
 		
-
-	img = StringIO.StringIO()
-	result_kmeans['plot'].savefig(img, format='png')
-	img.seek(0)
-	plot_url = base64.b64encode(img.getvalue())
+	if result_kmeans['plot'] != '':
+		img = StringIO.StringIO()
+		result_kmeans['plot'].savefig(img, format='png')
+		img.seek(0)
+		plot_url = base64.b64encode(img.getvalue())
+	else:
+		plot_url = ''
 
 	results = pd.DataFrame(list_data)
 	results = results.drop('_id', 1)
@@ -97,6 +98,7 @@ def kmeans(X, clusters):
 		index = str('%s%s'%(X[i][0], X[i][1])).replace('.','')
 		if len(X[i]) > 2:
 			plt.close()
+			results['plot'] = ''
 		else:
 			if index in point:
 				point[index]+=', %s'%(str(i))
@@ -104,8 +106,8 @@ def kmeans(X, clusters):
 				point[index]=str(i)
 				plt.plot(X[i][0], X[i][1], colors[labels[i]], markersize=10)
 		    	plt.text(X[i][0], X[i][1], '%s'%(point[index]))
+		    	results['plot'] = plt
 
 	results['data_cluster'] = list_cluster
-	results['plot'] = plt
 
 	return results
