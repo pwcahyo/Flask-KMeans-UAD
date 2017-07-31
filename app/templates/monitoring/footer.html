@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="container" style="width:100%;">
+   <table class="table" style="font-size:10px; width:68%;">
+    <thead>
+      <tr>
+        <th colspan="2">TINGKAT RESIKO KEJADIAN DIUKUR DENGAN, ANGKA INSIDEN (AI) : </th>
+        <th style="background-color:#00e03f; cursor:pointer;" class='clickable-row' data-href="?ai=rendah&m={{dropdown}}"></th>
+        <th>Resiko Rendah (AI < 20)</th>
+        <th style="background-color:#fdf75d; cursor:pointer;" class='clickable-row' data-href="?ai=sedang&m={{dropdown}}"></th>
+        <th>Resiko Sedang (20 <= AI <= 55)</th>
+        <th style="background-color:#ff7463; cursor:pointer;" class='clickable-row' data-href="?ai=tinggi&m={{dropdown}}"></th>
+        <th>Resiko Tinggi (55 < AI)</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  </div>
+</footer>
+
+<script type="text/javascript">
+	$(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+</script>

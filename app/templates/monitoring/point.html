@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    		<meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Monitoring Penyebaran Penyakit Demam Berdarah</title>
+            <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+            {{fullmap.js}}
+    </head>
+    {% include "monitoring/header.html" %}
+    <body>
+        {{fullmap.html}}
+    </body>
+    {% include "monitoring/footer.html" %}
+</html>
