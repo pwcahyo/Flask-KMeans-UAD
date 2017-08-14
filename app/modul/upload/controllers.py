@@ -8,7 +8,7 @@ import os
 mod_upload = Blueprint('upload', __name__, url_prefix='/mod_upload')
 mod_uploader = Blueprint('uploader', __name__, url_prefix='/mod_uploader')
 
-mainTitle = "Data Alumni UAD"
+mainTitle = "Clustering [KMeans]"
 
 @mod_upload.route('', methods = ['GET','POST'])
 def upload_file():

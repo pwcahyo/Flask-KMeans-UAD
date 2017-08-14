@@ -21,9 +21,9 @@ from app.modul.cluster.controllers import mod_cluster as cluster_module
 from app.modul.purity.controllers import mod_purity as purity_module
 
 # Register blueprint(s)
-app.register_blueprint(select_column_module)
 app.register_blueprint(upload_module)
 app.register_blueprint(uploader_module)
+app.register_blueprint(select_column_module)
 app.register_blueprint(cleaning_module)
 app.register_blueprint(cluster_module)
 app.register_blueprint(purity_module)
