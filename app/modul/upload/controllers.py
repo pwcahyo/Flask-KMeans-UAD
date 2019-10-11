@@ -16,9 +16,10 @@ def upload_file():
 	
 @mod_uploader.route('', methods = ['GET', 'POST'])
 def upload_file():
-   if request.method == 'POST':
-   		subTitle = ("Pilih Kolom Data Cluster")
-   		command = "Masukan urutan kolom yang akan dilakukan cluster (pisahkan degan koma)"
+	if request.method == 'POST':
+		print("coba git")
+		subTitle = ("Pilih Kolom Data Cluster")
+		command = "Masukan urutan kolom yang akan dilakukan cluster (pisahkan degan koma)"
 		f = request.files['file']
 		f.save(os.path.join('app/upload_data', 'DATA EXCEL.xlsx'))
 		wb = load_workbook(filename = 'app/upload_data/DATA EXCEL.xlsx')
